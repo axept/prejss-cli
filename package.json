@@ -1,0 +1,72 @@
+{
+  "name": "prejss",
+  "version": "1.2.0",
+  "description": "Get ES6 or CommonJS modules from CSS/SCSS/LESS styles using PreJSS",
+  "main": "lib/index.js",
+  "bin": {
+    "prejss-cli": "lib/cli.js"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build:lib": "babel src --out-dir lib",
+    "lint": "eslint src",
+    "flow": "flow check src",
+    "check": "npm run flow",
+    "test": "jest",
+    "build": "npm run build:lib",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axept/prejss-cli.git"
+  },
+  "keywords": [
+    "css",
+    "css-in-js",
+    "prejss",
+    "postcss",
+    "postjss",
+    "rework",
+    "jss",
+    "styled-components",
+    "stylesheets",
+    "scss",
+    "sass",
+    "less",
+    "stylus",
+    "sugarss"
+  ],
+  "author": "Axept <office@axept.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axept/prejss/issues"
+  },
+  "homepage": "https://github.com/axept/prejss",
+  "dependencies": {
+    "fs-readdir-recursive": "^1.0.0",
+    "glob": "^7.1.1",
+    "lodash.uniq": "^4.5.0",
+    "output-file-sync": "^1.1.2",
+    "prejss-postcss-parser": "github:axept/prejss-postcss-parser"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.39.0",
+    "jest": "^19.0.2",
+    "postcss-extend": "^1.0.5",
+    "rimraf": "^2.6.0"
+  }
+}
