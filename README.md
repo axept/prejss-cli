@@ -27,10 +27,10 @@ prejss-cli source.css
 prejss-cli --out-dir ./dist my-styles-directory
 
 # Convert CSS in specified directory to ES6 in the same directory
-# using specified adapter
+# using specified parser (which should be installed as prejss-NAME-parser package)
 prejss-cli --parser postcss ./src
 
 # Convert SCSS files only in specified directory to ES6 in ./jss
-# using specified adapter
+# using specified parser 
 prejss-cli --parser postcss --out-dir ./jss src/**/*.scss 
 ```
