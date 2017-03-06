@@ -14,6 +14,7 @@
     "check": "npm run flow",
     "test": "jest",
     "build": "npm run build:lib",
+    "example": "chmod u+x lib/cli.js && ./lib/cli.js -f json examples --pretty --out-dir ./dist",
     "prepublish": "npm run clean && npm run build"
   },
   "repository": {
@@ -43,6 +44,7 @@
   },
   "homepage": "https://github.com/axept/prejss",
   "dependencies": {
+    "commander": "^2.9.0",
     "fs-readdir-recursive": "^1.0.0",
     "glob": "^7.1.1",
     "lodash.uniq": "^4.5.0",

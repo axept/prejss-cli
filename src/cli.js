@@ -3,6 +3,7 @@
 import commander from 'commander'
 import glob from 'glob'
 import fs from 'fs'
+import path from 'path'
 import uniq from 'lodash.uniq'
 import readDir from 'fs-readdir-recursive'
 import processFile from './process-file'
@@ -11,6 +12,7 @@ import packageInfo from '../package.json'
 commander.option('-d, --out-dir [out]', 'Convert styles in an input directory into an output directory')
 commander.option('-f, --format [format]', 'Format of compiled modules (es6, commonjs, json)')
 commander.option('-p, --parser [name]', 'Parser name which is already installed as prejss-NAME-parser package')
+commander.option('--pretty', 'Prettify output result')
 
 commander.version(packageInfo['name'] + ' ' + packageInfo['version'])
 commander.usage('[options] <src>')
@@ -42,7 +44,8 @@ if (commander['format']) {
   }
 }
 
-const parser = commander['parser'] || 'postcss'
+const parser = commander['parser'] || 'prejss-postcss-parser'
+const pretty = commander['pretty'] || false
 
 if (errors.length > 0) {
   errors.forEach(message => console.error(message))
@@ -55,6 +58,7 @@ const options = {
   outDir,
   format,
   parser,
+  pretty,
 }
 
 console.log('DEBUG: ', { options })
@@ -63,7 +67,8 @@ sourceFiles.forEach(name => {
   const stat = fs.statSync(name)
   if (stat.isDirectory()) {
     readDir(name).forEach(fileInDir => {
-      processFile(fileInDir, options)
+      const finalPath = path.join(name, fileInDir)
+      processFile(finalPath, options)
     })
   } else {
     processFile(name, options)
