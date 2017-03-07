@@ -13,8 +13,8 @@
     "flow": "flow check src",
     "check": "npm run flow",
     "test": "jest",
-    "build": "npm run build:lib",
-    "example": "chmod u+x lib/cli.js && ./lib/cli.js -f json examples --pretty --out-dir ./dist",
+    "build": "npm run build:lib && chmod u+x lib/cli.js",
+    "example": "./lib/cli.js -f json examples --pretty --out-dir ./dist --config plugins=postcss-nested,postcss-extend",
     "prepublish": "npm run clean && npm run build"
   },
   "repository": {

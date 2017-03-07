@@ -12,12 +12,18 @@ import packageInfo from '../package.json'
 commander.option('-d, --out-dir [out]', 'Convert styles in an input directory into an output directory')
 commander.option('-f, --format [format]', 'Format of compiled modules (es6, commonjs, json)')
 commander.option('-p, --parser [name]', 'Parser name which is already installed as prejss-NAME-parser package')
+commander.option('-c, --config [value]', 'Parser config passed to postcss', parseConfig)
 commander.option('--pretty', 'Prettify output result')
 
 commander.version(packageInfo['name'] + ' ' + packageInfo['version'])
 commander.usage('[options] <src>')
 
 commander.parse(process.argv)
+
+function parseConfig(val) {
+  const [ key, params ] = val.split('=')
+  return { [key]: params.split(',') }
+}
 
 const errors = []
 
@@ -46,6 +52,7 @@ if (commander['format']) {
 
 const parser = commander['parser'] || 'prejss-postcss-parser'
 const pretty = commander['pretty'] || false
+const config = commander['config']
 
 if (errors.length > 0) {
   errors.forEach(message => console.error(message))
@@ -59,6 +66,7 @@ const options = {
   format,
   parser,
   pretty,
+  config,
 }
 
 console.log('DEBUG: ', { options })
