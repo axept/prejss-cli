@@ -14,7 +14,7 @@
     "check": "npm run flow",
     "test": "jest",
     "build": "npm run build:lib && chmod u+x lib/cli.js",
-    "example": "./lib/cli.js -f json examples --pretty --out-dir ./dist --config plugins=postcss-nested,postcss-extend",
+    "example": "./lib/cli.js -f json examples --pretty --out-dir ./dist --config plugins=postcss-extend",
     "prepublish": "npm run clean && npm run build"
   },
   "repository": {
@@ -49,7 +49,7 @@
     "glob": "^7.1.1",
     "lodash.uniq": "^4.5.0",
     "output-file-sync": "^1.1.2",
-    "prejss-postcss-parser": "github:axept/prejss-postcss-parser"
+    "prejss-postcss-parser": "^0.3.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

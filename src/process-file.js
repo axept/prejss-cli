@@ -13,7 +13,7 @@ export default (file, options) => {
   const source = file.split(path.sep)
   const name = getNameWithoutExt(source.pop())
   const format = options.format === 'json' ? 'json' : 'js'
-  const parsed = parser(code, options.config)
+  const parsed = parser(code, { config:  options.config })
   const finalName = `${name}.${format}`
   if (options.outDir) {
     source.shift()
