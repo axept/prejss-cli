@@ -9,12 +9,15 @@
   "scripts": {
     "clean": "rimraf lib",
     "build:lib": "babel src --out-dir lib",
+    "build:examples-js": "./lib/cli.js ./examples/src --out-dir ./examples/dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
+    "build:examples-json": "./lib/cli.js ./examples/src -f json --pretty --out-dir ./examples/dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
+    "build:examples": "npm run build:examples-js && npm run build:examples-json",
     "lint": "eslint src",
     "flow": "flow check src",
     "check": "npm run flow",
     "test": "npm run test:clean && jest",
     "test:clean": "rm -rf ./tests/.tmp",
-    "build": "npm run build:lib && chmod u+x lib/cli.js",
+    "build": "npm run build:lib && chmod u+x lib/cli.js && npm run build:examples",
     "example": "./lib/cli.js -f json examples --pretty --out-dir ./dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
     "prepublish": "npm run clean && npm run build"
   },

@@ -12,7 +12,8 @@ import packageInfo from '../package.json'
 commander.option('-d, --out-dir [out]', 'Convert styles in an input directory into an output directory')
 commander.option('-f, --format [format]', 'Format of compiled modules (es6, commonjs, json)')
 commander.option('-p, --parser [name]', 'Parser name which is already installed as prejss-NAME-parser package')
-commander.option('-c, --config [value]', 'Parser config passed to postcss', parseConfig)
+commander.option('-c, --config [value]', 'Config values passed to specified or default parser', parseConfig)
+commander.option('-v, --verbose', 'Enabled detailed debug output')
 commander.option('--pretty', 'Prettify output result')
 
 commander.version(packageInfo['name'] + ' ' + packageInfo['version'])
@@ -53,6 +54,7 @@ if (commander['format']) {
 const parser = commander['parser'] || 'prejss-postcss-parser'
 const pretty = commander['pretty'] || false
 const config = commander['config']
+const verbose = commander['verbose'] || false
 
 if (errors.length > 0) {
   errors.forEach(message => console.error(message))
@@ -67,16 +69,19 @@ const options = {
   parser,
   pretty,
   config,
+  verbose,
 }
 
-console.log('DEBUG: ', { options })
+if (options.verbose) {
+  console.log('Calculated options: ', { options })
+}
 
 sourceFiles.forEach(name => {
   const stat = fs.statSync(name)
   if (stat.isDirectory()) {
     readDir(name).forEach(fileInDir => {
       const finalPath = path.join(name, fileInDir)
-      processFile(finalPath, options)
+      processFile(finalPath, { ...options, sourceDir: name })
     })
   } else {
     processFile(name, options)

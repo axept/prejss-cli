@@ -6,7 +6,7 @@ const args = [
   '--out-dir', 'tests/.tmp',
   '-f', 'json',
   '--pretty',
-  'examples/basic.css',
+  'examples/src/basic.css',
 ]
 const json = {
   '.button': {
