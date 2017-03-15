@@ -6,7 +6,7 @@ prejss-cli
 [![npm downloads](https://img.shields.io/npm/dt/prejss-cli.svg?style=flat-square)](https://www.npmjs.com/package/prejss-cli)
 [![npm license](https://img.shields.io/npm/l/prejss-cli.svg?style=flat-square)](https://www.npmjs.com/package/prejss-cli)
 
-Command-Line Interface (CLI) interface for converting CSS/SCSS/LESS/other files to ES6 modules or to JSON files using any PreJSS parser and config.
+Command-Line Interface (CLI) interface for converting CSS/SCSS/LESS/other files to ES6 modules or to JSON files using any [PreJSS](https://github.com/axept/prejss) parser and config.
 
 ## Examples
 
