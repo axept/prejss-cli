@@ -6,7 +6,7 @@ prejss-cli
 [![npm downloads](https://img.shields.io/npm/dt/prejss-cli.svg?style=flat-square)](https://www.npmjs.com/package/prejss-cli)
 [![npm license](https://img.shields.io/npm/l/prejss-cli.svg?style=flat-square)](https://www.npmjs.com/package/prejss-cli)
 
-Command-Line Interface (CLI) interface for converting CSS/SCSS/LESS/other files into plain ES6 or CommonJS modules.
+Command-Line Interface (CLI) interface for converting CSS/SCSS/LESS/other files to ES6 modules or to JSON files.
 
 ## Examples
 
@@ -26,5 +26,6 @@ prejss-cli examples/src --parser postcss
 
 # Convert SCSS files only in specified directory to ES6 in ./dist
 # using specified parser and config
-prejss-cli src/**/*.scss --parser postcss --out-dir ./dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins
+prejss-cli src/**/*.scss --parser postcss --out-dir ./dist \
+  --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins
 ```
