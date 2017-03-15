@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "build:lib": "babel src --out-dir lib",
-    "build:examples-js": "./lib/cli.js ./examples/src --out-dir ./examples/dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
+    "build:examples-js": "./lib/cli.js ./examples/src --pretty --out-dir ./examples/dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
     "build:examples-json": "./lib/cli.js ./examples/src -f json --pretty --out-dir ./examples/dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins",
     "build:examples": "npm run build:examples-js && npm run build:examples-json",
     "lint": "eslint src",
