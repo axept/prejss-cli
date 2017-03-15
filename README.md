@@ -12,25 +12,19 @@ Command-Line Interface (CLI) interface for converting CSS/SCSS/LESS/other files 
 
 ```bash
 # Convert CSS file to JSON in current directory
-prejss-cli -f json source.css
-
-# Convert CSS file to CommonJS in current directory
-prejss-cli  -f commonjs source.css
-
-# Convert CSS file to ES6 in current directory
-prejss-cli -f es6 source.css
+prejss-cli -f json source.css --pretty
 
 # Convert CSS file to ES6 in current directory
 prejss-cli source.css
 
-# Convert all CSS in specified directory to ES6 in ./dist
-prejss-cli --out-dir ./dist my-styles-directory
+# Convert all CSS in specified directory to ES6 in ./examples/dist
+prejss-cli examples/src --out-dir ./examples/dist
 
 # Convert CSS in specified directory to ES6 in the same directory
 # using specified parser (which should be installed as prejss-NAME-parser package)
-prejss-cli --parser postcss ./src
+prejss-cli examples/src --parser postcss
 
-# Convert SCSS files only in specified directory to ES6 in ./jss
-# using specified parser 
-prejss-cli --parser postcss --out-dir ./jss src/**/*.scss 
+# Convert SCSS files only in specified directory to ES6 in ./dist
+# using specified parser and config
+prejss-cli src/**/*.scss --parser postcss --out-dir ./dist --config plugins=postcss-import,postcss-simple-vars,postcss-sassy-mixins
 ```
