@@ -1,7 +1,7 @@
 {
   "name": "prejss-cli",
   "version": "0.3.2",
-  "description": "Get ES6 or CommonJS modules from CSS/SCSS/LESS styles using PreJSS",
+  "description": "Get ES6 modules or JSON files from CSS/SCSS/LESS/other styles using PreJSS",
   "main": "lib/index.js",
   "bin": {
     "prejss-cli": "lib/cli.js"
