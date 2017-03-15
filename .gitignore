@@ -1,6 +1,7 @@
 .idea
 tests/.tmp
 dist
+!examples/dist
 lib
 node_modules
 npm-debug.log*
