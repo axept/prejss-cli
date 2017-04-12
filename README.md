@@ -26,15 +26,14 @@ prejss-cli examples/src --out-dir ./examples/dist
 # Convert CSS in specified directory to ES6 in the same directory
 # using specified parser (which should be installed as prejss-NAME-parser package)
 
-# ( install required plugins before )
 npm install -g prejss-postcss-parser
 
 prejss-cli examples/src --parser postcss
 
+
 # Convert SCSS files only in specified directory to ES6 modules with JSS objects
 # using specified parser and config
 
-# ( install required plugins before )
 npm install -g postcss-import postcss-simple-vars postcss-sassy-mixins
 
 prejss-cli bootstrap/v4-dev/scss/**/*.scss --parser postcss --out-dir ./bootstrap4-jss \
